@@ -3,7 +3,7 @@ import datetime
 def iso(dt: datetime.datetime):
     if dt:
         return dt.isoformat()
-general_hours_offset = 48
+general_hours_offset = 24
 
 def earliest_time_offset(region):
     if "ostergotland" in region:
