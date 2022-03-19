@@ -21,7 +21,7 @@ def get_earliest_date(region):
 
 def get_latest_date():
     now = datetime.datetime.today()
-    offset_days = 3
+    offset_days = 7
     delta = datetime.timedelta(days=offset_days)
     return now + delta 
 

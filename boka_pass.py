@@ -7,8 +7,8 @@ from extract_times import extract_times, get_earliest_valid_time
 from extract_service_details import extract_service_details
 from check_boking_done import check_boking_done
 
-region_pairs = [(56, 'ostergotland'), (17, 'orebro'), (59, 'jonkoping'), (60, 'sodermanland'), (47, 'stockholm')]
-#region_pairs = [(56, 'ostergotland')]
+#region_pairs = [(56, 'ostergotland'), (17, 'orebro'), (59, 'jonkoping'), (60, 'sodermanland'), (47, 'stockholm')]
+region_pairs = [(56, 'ostergotland')]
 #region_pairs = [(47, 'stockholm'), (60, 'sodermanland')]
 
 BASE_URL = "https://bokapass.nemoq.se/Booking/Booking"
