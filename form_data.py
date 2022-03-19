@@ -3,7 +3,7 @@ import datetime
 def iso(dt: datetime.datetime):
     if dt:
         return dt.isoformat()
-general_hours_offset = 24
+general_hours_offset = 0
 
 def earliest_time_offset(region):
     if "ostergotland" in region:
@@ -21,7 +21,7 @@ def get_earliest_date(region):
 
 def get_latest_date():
     now = datetime.datetime.today()
-    offset_days = 7
+    offset_days = 3
     delta = datetime.timedelta(days=offset_days)
     return now + delta 
 
@@ -131,10 +131,10 @@ just_next = {
 }
 
 book_form = {
-    "EmailAddress": "balutavasile@yahoo.se",
-    "ConfirmEmailAddress": "balutavasile@yahoo.se",
-    "PhoneNumber": "0738011190",
-    "ConfirmPhoneNumber": "0738011190",
+    "EmailAddress": "baluta.vasile@gmail.com",
+    "ConfirmEmailAddress": "baluta.vasile@gmail.com",
+    "PhoneNumber": "0703224075",
+    "ConfirmPhoneNumber": "0703224075",
     "SelectedContacts[0].IsSelected": [
         "true",
         "false"
