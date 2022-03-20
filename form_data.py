@@ -21,7 +21,7 @@ def get_earliest_date(region):
 
 def get_latest_date():
     now = datetime.datetime.today()
-    offset_days = 7
+    offset_days = 3
     delta = datetime.timedelta(days=offset_days)
     return now + delta 
 
@@ -61,7 +61,7 @@ def get_search_form(region):
     "FormId":1,
     "NumberOfPeople":2,
     "RegionId":0,
-    "SectionId":0,
+    "SectionId":90,
     "NQServiceTypeId":1,
     "FromDateString":earliest_date[0],
     "SearchTimeHour":earliest_date[1],
@@ -75,7 +75,7 @@ def get_reserv_form(sectionId, servicetypeid, fromdatetime):
     "ReservedServiceTypeId": servicetypeid,
     "ReservedSectionId": sectionId,
     "NQServiceTypeId": "1",
-    "SectionId": "0",
+    "SectionId": "90",
     "FromDateString": date_time.date(),
     "NumberOfPeople": "2",
     "SearchTimeHour": date_time.hour,
@@ -131,10 +131,10 @@ just_next = {
 }
 
 book_form = {
-    "EmailAddress": "baluta.vasile@gmail.com",
-    "ConfirmEmailAddress": "baluta.vasile@gmail.com",
-    "PhoneNumber": "0703224075",
-    "ConfirmPhoneNumber": "0703224075",
+    "EmailAddress": "balutavasile@yahoo.se",
+    "ConfirmEmailAddress": "balutavasile@yahoo.se",
+    "PhoneNumber": "0738011190",
+    "ConfirmPhoneNumber": "0738011190",
     "SelectedContacts[0].IsSelected": [
         "true",
         "false"

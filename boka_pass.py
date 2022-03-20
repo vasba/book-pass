@@ -119,8 +119,8 @@ while not booked_time:
             else:
                 dates = extract_times(result.text)
                 earliest_valid_time = get_earliest_valid_time(dates, get_latest_date())
-                #if earliest_valid_time and '90' in earliest_valid_time[0]:
-                if earliest_valid_time:
+                if earliest_valid_time and '90' in earliest_valid_time[0]:
+                #if earliest_valid_time:
                     found_times.append((region_pair, earliest_valid_time, session, r1.cookies))
 
             #if len(found_times) > 0:
