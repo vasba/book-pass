@@ -7,7 +7,7 @@ from extract_times import extract_times, get_earliest_valid_time
 from extract_service_details import extract_service_details
 from check_boking_done import check_boking_done
 
-#region_pairs = [(56, 'ostergotland'), (17, 'orebro'), (59, 'jonkoping'), (60, 'sodermanland'), (47, 'stockholm')]
+#region_pairs = [(56, 'ostergotland'), (17, 'orebro'), (59, 'jonkoping'), (60, 'sodermanland'), (47, 'stockholm'), (69, 'kalmar'), (68, 'kronoberg')]
 region_pairs = [(56, 'ostergotland')]
 #region_pairs = [(47, 'stockholm'), (60, 'sodermanland')]
 
@@ -119,8 +119,8 @@ while not booked_time:
             else:
                 dates = extract_times(result.text)
                 earliest_valid_time = get_earliest_valid_time(dates, get_latest_date())
-                if earliest_valid_time and '90' in earliest_valid_time[0]:
-                #if earliest_valid_time:
+                #if earliest_valid_time and '90' in earliest_valid_time[0]:
+                if earliest_valid_time:
                     found_times.append((region_pair, earliest_valid_time, session, r1.cookies))
 
             #if len(found_times) > 0:

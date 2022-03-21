@@ -3,7 +3,7 @@ import datetime
 def iso(dt: datetime.datetime):
     if dt:
         return dt.isoformat()
-general_hours_offset = 0
+general_hours_offset = 144
 
 def earliest_time_offset(region):
     if "ostergotland" in region:
@@ -21,7 +21,7 @@ def get_earliest_date(region):
 
 def get_latest_date():
     now = datetime.datetime.today()
-    offset_days = 3
+    offset_days = 7 + int(general_hours_offset/24)
     delta = datetime.timedelta(days=offset_days)
     return now + delta 
 
@@ -38,30 +38,27 @@ second_step = {
         "true",
         "false"
     ],
-    "NumberOfPeople": "2",
+    "NumberOfPeople": "1",
     "Next": "N\u00e4sta"
 }
 
 third_step = {
     "ServiceCategoryCustomers[0].CustomerIndex": "0",
     "ServiceCategoryCustomers[0].ServiceCategoryId": "2",
-    "ServiceCategoryCustomers[1].CustomerIndex": "1",
-    "ServiceCategoryCustomers[1].ServiceCategoryId": "2",
     "Next": "N\u00e4sta"
 }
 
 book_data = {
     "FormId":2,
-    
     }
 
 def get_search_form(region):
     earliest_date = get_earliest_date(region)
     return {
     "FormId":1,
-    "NumberOfPeople":2,
+    "NumberOfPeople":1,
     "RegionId":0,
-    "SectionId":90,
+    "SectionId":0,
     "NQServiceTypeId":1,
     "FromDateString":earliest_date[0],
     "SearchTimeHour":earliest_date[1],
@@ -75,9 +72,9 @@ def get_reserv_form(sectionId, servicetypeid, fromdatetime):
     "ReservedServiceTypeId": servicetypeid,
     "ReservedSectionId": sectionId,
     "NQServiceTypeId": "1",
-    "SectionId": "90",
+    "SectionId": sectionId,
     "FromDateString": date_time.date(),
-    "NumberOfPeople": "2",
+    "NumberOfPeople": "1",
     "SearchTimeHour": date_time.hour,
     "RegionId": "0",
     "ReservedDateTime": fromdatetime,
@@ -88,11 +85,11 @@ def get_details_form(first_service_id, first_service_name,
                      second_service_id, second_service_name):
     return {
     "Customers[0].BookingCustomerId": "0",
-    "Customers[0].BookingFieldValues[0].Value": "Thea",
+    "Customers[0].BookingFieldValues[0].Value": "Simona",
     "Customers[0].BookingFieldValues[0].BookingFieldId": "5",
     "Customers[0].BookingFieldValues[0].BookingFieldTextName": "BF_2_FÖRNAMN",
     "Customers[0].BookingFieldValues[0].FieldTypeId": "1",
-    "Customers[0].BookingFieldValues[1].Value": "Rineholm",
+    "Customers[0].BookingFieldValues[1].Value": "Chisalita",
     "Customers[0].BookingFieldValues[1].BookingFieldId": "6",
     "Customers[0].BookingFieldValues[1].BookingFieldTextName": "BF_2_EFTERNAMN",
     "Customers[0].BookingFieldValues[1].FieldTypeId": "1",
@@ -105,24 +102,7 @@ def get_details_form(first_service_id, first_service_name,
     "Customers[0].Services[1].IsSelected": "false",
     "Customers[0].Services[1].ServiceId": second_service_id,
     "Customers[0].Services[1].ServiceTextName": second_service_name,
-    "Customers[1].BookingCustomerId": "0",
-    "Customers[1].BookingFieldValues[0].Value": "Timon",
-    "Customers[1].BookingFieldValues[0].BookingFieldId": "5",
-    "Customers[1].BookingFieldValues[0].BookingFieldTextName": "BF_2_FÖRNAMN",
-    "Customers[1].BookingFieldValues[0].FieldTypeId": "1",
-    "Customers[1].BookingFieldValues[1].Value": "Rineholm",
-    "Customers[1].BookingFieldValues[1].BookingFieldId": "6",
-    "Customers[1].BookingFieldValues[1].BookingFieldTextName": "BF_2_EFTERNAMN",
-    "Customers[1].BookingFieldValues[1].FieldTypeId": "1",
-    "Customers[1].Services[0].IsSelected": [
-        "true",
-        "false"
-    ],
-    "Customers[1].Services[0].ServiceId": first_service_id,
-    "Customers[1].Services[0].ServiceTextName": first_service_name,
-    "Customers[1].Services[1].IsSelected": "false",
-    "Customers[1].Services[1].ServiceId": second_service_id,
-    "Customers[1].Services[1].ServiceTextName": second_service_name,
+    
     "Next": "N\u00e4sta"
 }
     
@@ -131,10 +111,10 @@ just_next = {
 }
 
 book_form = {
-    "EmailAddress": "balutavasile@yahoo.se",
-    "ConfirmEmailAddress": "balutavasile@yahoo.se",
-    "PhoneNumber": "0738011190",
-    "ConfirmPhoneNumber": "0738011190",
+    "EmailAddress": "ichisalita@yahoo.com",
+    "ConfirmEmailAddress": "ichisalita@yahoo.com",
+    "PhoneNumber": "0730431050",
+    "ConfirmPhoneNumber": "0730431050",
     "SelectedContacts[0].IsSelected": [
         "true",
         "false"
@@ -164,11 +144,7 @@ book_form = {
 bekrafta_bokning = {
     "PersonViewModel.Customers[0].Services[0].IsSelected": "false",
     "PersonViewModel.Customers[0].Services[1].IsSelected": "false",
-    "PersonViewModel.Customers[1].Services[0].IsSelected": "false",
-    "PersonViewModel.Customers[1].Services[1].IsSelected": "false",
     "ContactViewModel.SelectedContacts[0].IsSelected": "false",
     "ContactViewModel.SelectedContacts[1].IsSelected": "false",
-    "ContactViewModel.SelectedContacts[2].IsSelected": "false",
-    "ContactViewModel.SelectedContacts[3].IsSelected": "false",
     "Next": "Bekr\u00e4fta+bokning"
 }
